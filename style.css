@@ -1,0 +1,53 @@
+html {
+    height: 80%;
+  }
+  body {
+    background-color: #333;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
+    position: relative;
+  }
+  .songentry {
+    position: absolute;
+    top:  100px;
+    left:  400px;
+  }
+
+  .songtext {
+    color: white;
+    position: absolute;
+    top:  50px;
+    left:  415px;
+  }
+
+  .artistentry {
+    position: absolute;
+    top:  100px;
+    left:  600px;
+  }
+
+  .artisttext {
+    color: white;
+    position: absolute;
+    top:  50px;
+    left:  650px;
+  }
+
+  .langentry {
+    position: absolute;
+    top:  100px;
+    left:  800px;
+  }
+
+  .langtext {
+    color: white;
+    position: absolute;
+    top:  50px;
+    left:  825px;
+  }
+
+
+  
