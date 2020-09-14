@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
 <style>
 body {
   background-color: white;
@@ -9,48 +8,25 @@ body {
   color: black;
 }
 </style>
-<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Crimson+Text|Open+Sans:400,800" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Lyric Translation</h1>
-    <!-- <p id="demo">A Paragraph</p> -->
-    <script type="module" src="languages.js"></script>
+    <h1>Lyrics Translation</h1>
+    <script src="main.js"></script>
     <p id = "song_name" class = "songtext">Name of Song</p> 
     <input type="text" id="song" name="song" class = "songentry"><br><br>
     <p id = "artist_name" class = "artisttext">Artist</p> 
     <input type="text" id="artist" name="artist" class = "artistentry"><br><br>
     <p id = "to_lang" class = "langtext">Translate to</p> 
-    <input type="text" id="lang" name="lang" class = "langentry"><br><br>
-    <button id = "go" type="button" onclick="findLyrics(document.getElementById('song').value, document.getElementById('artist').value)">Go</button>
+    <select name="lang" id="lang" class = "langentry"></select>
+    <script>createDropDown();</script>
+    <button id = "go" class = "go" type="button" onclick="findLyrics(document.getElementById('song').value, document.getElementById('artist').value)">Go</button>
 
-    <body><h3><span id="lyrics"></span></h3></body> 
-
-    <script>
-    function findLyrics(song, fname) {
-      var url = 'https://api.lyrics.ovh/v1/' + fname + '/' + song;
-      var client = new HttpClient();
-      client.get(url, function(response) {
-        var obj = JSON.parse(response);
-        var str = obj.lyrics;
-        var str = str.replace(/\n/g, "<br />");
-        document.getElementById("lyrics").innerHTML = str;
-      });
-    }
-
-    var HttpClient = function() {
-    this.get = function(arg, callback) {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() { 
-            if (request.readyState == 4 && request.status == 200)
-                callback(request.responseText);
-        }
-        request.open( "GET", arg, true );            
-        request.send( null );
-      }
-    }
-    </script>
+    <body>
+      <h3><span id="lyrics"></span></h3>
+      <h3><span id="t_lyrics"></span></h3>
+    </body>
 
 </body>
 </html>
